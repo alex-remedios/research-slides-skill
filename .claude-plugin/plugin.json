@@ -1,0 +1,11 @@
+{
+  "name": "research-slides-skill",
+  "displayName": "Research Slides Skill",
+  "description": "Build native, editable .pptx decks from an agent-written XML layout: one declared element per shape, a fidelity gate, PNG and PDF export. Built for turning AI research results into slides.",
+  "version": "0.1.0",
+  "author": { "name": "Alex Remedios" },
+  "homepage": "https://github.com/alex-remedios/research-slides-skill",
+  "repository": "https://github.com/alex-remedios/research-slides-skill",
+  "license": "MIT",
+  "keywords": ["pptx", "slides", "powerpoint", "google-slides", "python-pptx", "research"]
+}

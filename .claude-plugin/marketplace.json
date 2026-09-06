@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "alex-remedios",
+  "description": "Alex Remedios's Claude Code plugins.",
+  "owner": { "name": "Alex Remedios", "url": "https://github.com/alex-remedios" },
+  "plugins": [
+    {
+      "name": "research-slides-skill",
+      "source": "./",
+      "description": "Build native, editable .pptx decks from an agent-written XML layout: one declared element per shape, a fidelity gate, PNG and PDF export.",
+      "category": "productivity",
+      "license": "MIT",
+      "homepage": "https://github.com/alex-remedios/research-slides-skill"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+__pycache__/
+*.pptx
+*.pdf
+!example-slides.pptx
+!example-slides.pdf

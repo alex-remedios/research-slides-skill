@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Element gallery for research-slides-skill. One slide per element or recurring pattern;
+     every slide names the layout elements it uses in a small grey line at the bottom,
+     so the rendered deck (example-slides.pptx / .pdf) doubles as the terminology
+     reference. Copy a <slide> block into your slides.xml and adapt the geometry/text.
+     The canvas is 10 x 5.625 in (16:9); all x y w h are inches.
+
+     Rebuild it (explicit out path so it never clobbers a real deck's .pptx):
+       bash build.sh example-slides.xml example-slides.pptx
+     then run check_fidelity.py and export_pdf.py on it (flags in README.md; they use a
+     double hyphen, which XML comments forbid, so they are not quoted here). -->
+<deck font="Calibri">
+
+  <!-- title slide: outline="none" keeps the boxes clean; <muted> is a small grey tag. -->
+  <slide>
+    <title x="0.8" y="1.9" w="8.4" h="0.9" size="34" outline="none">Element gallery</title>
+    <text x="0.8" y="2.8" w="8.4" h="0.7" size="18" color="555555" outline="none">research-slides-skill · every slide names the layout elements it uses</text>
+    <text x="0.8" y="4.3" w="8.4" h="0.4" size="12" color="8A8A8A" outline="none">Built from <code>example-slides.xml</code> with <a href="https://github.com/alex-remedios/research-slides-skill">research-slides-skill</a> <muted>gallery</muted></text>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · text · inline a, code, muted · outline="none"</text>
+  </slide>
+
+  <!-- section divider: a short accent rule above a big left-aligned title and a muted
+       subtitle. Repeat the same geometry for every divider so they read as a set. -->
+  <slide>
+    <shape prst="rectangle" x="0.82" y="2.15" w="2.3" h="0.06" fill="B5742A" line="B5742A"/>
+    <title x="0.8" y="2.3" w="8.4" h="0.8" size="32" outline="none">Section divider</title>
+    <text x="0.8" y="3.1" w="8.4" h="0.4" size="14" color="707070" outline="none">A rule, a title, a subtitle — nothing else</text>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: shape prst="rectangle" (the rule) · title · text</text>
+  </slide>
+
+  <!-- <text> with <p> paragraphs and every inline run. -->
+  <slide>
+    <title>&lt;text&gt; — paragraphs and inline runs</title>
+    <text x="0.7" y="1.3" w="8.6" h="3.4" size="16" anchor="top">
+      <p>A <b>bold</b> run, an <i>italic</i> run, and <code>monospace code</code> in one paragraph.</p>
+      <p>A real hyperlink: <a href="https://python-pptx.readthedocs.io/">python-pptx docs</a>; a <muted>muted owner tag</muted> at the end.</p>
+      <p><run color="C0392B" bold="true">run</run> takes explicit <run color="2A52A0" italic="true" size="14">color, size, bold, italic, font</run>.</p>
+      <p>Nesting composes: <i>italic throughout, <b>bold here</b>, italic again</i>.</p>
+      <p>A line break inside a paragraph<br/>renders as a real paragraph break, so it survives the Google Slides import.</p>
+    </text>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · text with p · inline b, i, code, a, muted, run, br</text>
+  </slide>
+
+  <!-- <bullets>: levels indent with a hanging indent; bullet= switches glyph or numbering. -->
+  <slide>
+    <title>&lt;bullets&gt; — levels and numbering</title>
+    <text x="0.7" y="1.2" w="4.2" h="0.3" size="12" bold="true" color="555555">bullet="•" (default), level= to indent</text>
+    <bullets x="0.7" y="1.55" w="4.2" h="3.2" size="14" space-after="8">
+      <li>Top-level point</li>
+      <li level="1">A sub-point, indented once</li>
+      <li level="2">Indented twice; wrapped lines align under the text, not the glyph</li>
+      <li>Back to the top level</li>
+    </bullets>
+    <text x="5.2" y="1.2" w="4.2" h="0.3" size="12" bold="true" color="555555">bullet="arabic" (auto-numbered)</text>
+    <bullets x="5.2" y="1.55" w="4.2" h="3.2" size="14" space-after="8" bullet="arabic">
+      <li>Scaffold the deck: title and dividers</li>
+      <li>Fill one section at a time</li>
+      <li>Build, check fidelity, look at the PNGs</li>
+      <li bullet="none">(a single li can override its own bullet)</li>
+    </bullets>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · text · bullets with li level= · bullets bullet="arabic"</text>
+  </slide>
+
+  <!-- native flow (no image): rounded boxes + down-arrow autoshapes + a caption. Edit it
+       live in Slides; no figure to rebuild. Block arrows only (no thin connectors), no
+       rotation; switch to a diagram image once it gets dense. -->
+  <slide>
+    <title>&lt;shape&gt; — a native flow, no image</title>
+    <bullets x="0.7" y="1.5" w="4.3" h="3.0" size="13" space-after="14">
+      <li>Every merge to <code>main</code> builds a versioned artifact.</li>
+      <li>Canary takes <b>5%</b> of traffic for 30 minutes before the full rollout.</li>
+      <li>A failed health check rolls back automatically.</li>
+    </bullets>
+    <shape prst="rounded-rectangle" x="5.35" y="1.05" w="3.8" h="0.5" fill="E3F0E3" line="3C7A3C" anchor="middle" align="center" size="13" color="2F5A2F"><b>Pull request merged</b> (CI green)</shape>
+    <shape prst="down-arrow" x="7.07" y="1.6" w="0.36" h="0.32" fill="9A9A9A" line="9A9A9A"/>
+    <shape prst="rounded-rectangle" x="5.35" y="1.97" w="3.8" h="0.72" fill="EAF0FB" line="2A52A0" anchor="middle" align="center" size="13" color="1A3A6B"><b>Canary deploy</b> · 5% of traffic, 30 min soak</shape>
+    <shape prst="down-arrow" x="7.07" y="2.74" w="0.36" h="0.32" fill="9A9A9A" line="9A9A9A"/>
+    <shape prst="rounded-rectangle" x="5.35" y="3.11" w="3.8" h="0.72" fill="FBE9E7" line="C0392B" anchor="middle" align="center" size="13" color="8E2A20"><b>Full rollout</b> or automatic rollback</shape>
+    <caption x="5.0" y="4.05" w="4.5" h="0.6" align="center">Three stages; the health check decides between the last two.</caption>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · bullets · shape prst="rounded-rectangle" · shape prst="down-arrow" · caption</text>
+  </slide>
+
+  <!-- tier ladder: colour-ramped stacked rounded-rects, one row per tier, anchor=middle.
+       A single-hue ramp deepening downwards reads as "more". -->
+  <slide>
+    <title>&lt;shape&gt; — a tier ladder</title>
+    <text x="1.5" y="1.0" w="7.0" h="0.3" size="12" align="center" color="707070"><i>Fastest at the top; each tier below covers more and costs more.</i></text>
+    <shape prst="rounded-rectangle" x="1.5" y="1.5" w="7.0" h="0.62" fill="F4F8FD" line="9DB3CE" anchor="middle" align="center" size="13" color="1A3A6B"><b>unit</b> — pure functions, milliseconds, thousands of cases</shape>
+    <shape prst="rounded-rectangle" x="1.5" y="2.27" w="7.0" h="0.62" fill="E7F0FA" line="7E9DC2" anchor="middle" align="center" size="13" color="1A3A6B"><b>integration</b> — real database, one service at a time</shape>
+    <shape prst="rounded-rectangle" x="1.5" y="3.04" w="7.0" h="0.62" fill="D9E6F5" line="5E84B5" anchor="middle" align="center" size="13" color="14315C"><b>contract</b> — recorded requests between services</shape>
+    <shape prst="rounded-rectangle" x="1.5" y="3.81" w="7.0" h="0.62" fill="CBDCF0" line="4470A8" anchor="middle" align="center" size="13" color="14315C"><b>end-to-end</b> — a browser against a staging cluster</shape>
+    <shape prst="rounded-rectangle" x="1.5" y="4.58" w="7.0" h="0.5" fill="BDD2EB" line="2F5C97" anchor="middle" align="center" size="13" color="0F2647"><b>manual</b> — release checklist, once per release</shape>
+    <text x="0.5" y="5.2" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · text · shape prst="rounded-rectangle" x5 (single-hue fill ramp)</text>
+  </slide>
+
+  <!-- taxonomy ladder: one bold category + one inline example per tier, no narrative.
+       Severity ramp blue -> amber -> red. -->
+  <slide>
+    <title>&lt;shape&gt; — a taxonomy with a severity ramp</title>
+    <shape prst="rounded-rectangle" x="1.3" y="1.5" w="7.0" h="0.95" fill="EAF0FB" line="2A52A0" anchor="middle" align="center" size="17" color="1A3A6B"><b>Sev 3 — degraded</b><run color="555555" size="15"> — e.g. </run><run italic="true" color="555555" size="15">search results load slowly</run></shape>
+    <shape prst="rounded-rectangle" x="1.3" y="2.65" w="7.0" h="0.95" fill="FBEEDF" line="B5742A" anchor="middle" align="center" size="17" color="7A4E18"><b>Sev 2 — feature down</b><run color="555555" size="15"> — e.g. </run><code size="15" color="555555">POST /checkout</code><run color="555555" size="15"> returns 500</run></shape>
+    <shape prst="rounded-rectangle" x="1.3" y="3.8" w="7.0" h="0.95" fill="FBE9E7" line="C0392B" anchor="middle" align="center" size="17" color="8E2A20"><b>Sev 1 — outage</b><run color="555555" size="15"> — e.g. login fails for every user</run></shape>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · shape prst="rounded-rectangle" with mixed inline runs (b, run, code)</text>
+  </slide>
+
+  <!-- results slide: a figure as a real image object, a caption, and a provenance link.
+       fit="contain" (default) keeps the aspect ratio: state w and the height follows. -->
+  <slide>
+    <title>&lt;image&gt; — a results slide with caption and provenance</title>
+    <image src="figures/example-chart.png" x="2.2" y="1.0" w="5.6"/>
+    <caption x="1.4" y="4.25" w="7.2" h="0.5" align="center">Rendered at 16:9 with oversized fonts so it reads at slide size; numbers come from the data, not the XML.</caption>
+    <text x="0.5" y="4.85" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · image src= w= (fit="contain") · caption · source href=</text>
+    <source href="https://example.com/reports/deploy-frequency-q3"/>
+  </slide>
+
+  <!-- data-led intro ("given this input, what happens"): the input artifact centred as a
+       card, then two outcome boxes. Lead with the result. -->
+  <slide>
+    <title>Pattern — data-led intro: input card, then outcomes</title>
+    <shape prst="rectangle" x="2.5" y="1.3" w="5.0" h="1.0" fill="FBFBF8" line="CFCFC9" anchor="middle" align="left" size="12" color="333333"><p><code size="12" color="555555"><b>CI:</b> test_payment_webhook FAILED (timeout 30s)</code></p><p><code size="12" color="A23A3A"><b>retry</b> 1 of 2 …</code></p></shape>
+    <text x="1.6" y="2.5" w="7.8" h="0.3" size="12" align="center" color="333333"><b>What happens — the first retry recovers most runs; the second rarely helps:</b></text>
+    <shape prst="rounded-rectangle" x="1.6" y="2.9" w="3.7" h="1.2" fill="E3F0E3" line="3C7A3C" anchor="middle" align="center" size="12" color="2F5A2F"><p><b>Retry 1</b></p><p><run color="2F7A2F" bold="true">✓ recovers</run> — 412 of 480 failures (86%)</p></shape>
+    <shape prst="rounded-rectangle" x="5.7" y="2.9" w="3.7" h="1.2" fill="FBE9E7" line="C0392B" anchor="middle" align="center" size="12" color="8E2A20"><p><b>Retry 2</b></p><p><run color="C0392B" bold="true">marginal</run> — recovers <b>9</b> more; <b>59</b> are real failures</p></shape>
+    <text x="0.5" y="4.85" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · shape prst="rectangle" (mono card) · text · shape prst="rounded-rectangle" x2 · source</text>
+    <source href="https://example.com/ci/reports/2026-01-flaky-tests"/>
+  </slide>
+
+  <!-- <columns>: each column is a header + sub-label + a card; children inherit their
+       column's band, so you state y/h only. -->
+  <slide>
+    <title>&lt;columns&gt; — a two-column compare</title>
+    <columns x="0.55" y="1.05" w="8.95" h="3.5" gap="0.2">
+      <column w="50%">
+        <text y="1.05" h="0.3" size="13" bold="true" color="2A52A0">1 · Lockfile</text>
+        <text y="1.34" h="0.25" size="10" italic="true" color="888888">exact versions, resolved once, committed</text>
+        <shape prst="rectangle" y="1.62" h="1.35" fill="FBFBF8" line="CFCFC9" anchor="top" align="left" size="10" color="333333"><p><code size="10" color="333333">requests==2.32.3</code></p><p><code size="10" color="333333">urllib3==2.2.2</code></p><p><code size="10" color="A23A3A">certifi==2024.7.4  # transitive, pinned too</code></p></shape>
+      </column>
+      <column w="50%">
+        <text y="1.05" h="0.3" size="13" bold="true" color="2F7A2F">2 · Ranges</text>
+        <text y="1.34" h="0.25" size="10" italic="true" color="888888">floors only; resolution happens at install time</text>
+        <shape prst="rectangle" y="1.62" h="1.55" fill="F4FAF4" line="9CC79C" anchor="top" align="left" size="11" color="333333"><p><b>Trade-off:</b> a range picks up security fixes for free, but two installs a week apart can differ — so builds are reproducible only with a lockfile <i>as well</i>.</p></shape>
+      </column>
+    </columns>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · columns gap= · column w="50%" · text · shape prst="rectangle"</text>
+  </slide>
+
+  <!-- <table>: one graphic frame, editable as a real table. Row contrast is stated:
+       band= zebra-fills alternate rows, rules= draws the lines. Colour a cell to make
+       the varying axis read down the column. -->
+  <slide>
+    <title>&lt;table&gt; — a configuration matrix</title>
+    <table x="0.4" y="1.0" w="9.2" cols="2.6,1.8,1.6,3.2"
+           align="left,center,center,center" size="13" row-height="0.55" rules="rows">
+      <tr><td>environment</td><td>replicas</td><td>autoscale</td><td>database</td></tr>
+      <tr><td>dev</td><td color="555555">1</td><td color="999999">off</td><td>shared, reset nightly</td></tr>
+      <tr><td>staging</td><td color="555555">2</td><td color="A23A3A">off</td><td>snapshot of production</td></tr>
+      <tr><td>production</td><td color="555555">6–24</td><td color="1A3A6B">on</td><td>primary + two replicas</td></tr>
+    </table>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · table cols= align= row-height= rules="rows" · tr · td color=</text>
+  </slide>
+
+  <!-- <turn>: transcript cards. actor picks the colour family (user/main/leaf/agent/
+       result); tag= adds a small label suffix; mono body by default. -->
+  <slide>
+    <title>&lt;turn&gt; — transcript cards</title>
+    <turn actor="user" x="0.6" y="1.2" w="8.8" h="0.8"><p>Hi, I was charged twice for order #48213. Can you refund one of them?</p></turn>
+    <turn actor="agent" x="0.6" y="2.2" w="8.8" h="1.1"><p>I can see two charges of $42.00 on 14 Jan. I have refunded the duplicate;</p><p>it should appear on your statement within 5 business days.</p></turn>
+    <turn actor="result" tag="audit" x="0.6" y="3.5" w="8.8" h="0.8"><p>refund(order=48213, charge=ch_2, amount=42.00) -> ok</p></turn>
+    <caption x="0.6" y="4.45" w="8.8" h="0.4">Cards are one shape each: a small context label above a mono body.</caption>
+    <text x="0.5" y="5.12" w="7.5" h="0.3" size="9" color="8A8A8A">elements: title · turn actor="user" · turn actor="agent" · turn actor="result" tag= · caption</text>
+  </slide>
+
+</deck>
