@@ -12,6 +12,38 @@ each one onto exactly one [python-pptx](https://python-pptx.readthedocs.io/) sha
 the result opens cleanly in Google Slides or PowerPoint; `check_fidelity.py` proves
 nothing was dropped and renders per-slide PNGs to eyeball.
 
+## What it makes
+
+Six slides from the built gallery (LibreOffice renders of the `.pptx`; every shape is a
+real, editable object in PowerPoint or Google Slides):
+
+<table>
+  <tr>
+    <td><img src="figures/gallery/slide-05.png" alt="native flow: boxes and block arrows" width="420"></td>
+    <td><img src="figures/gallery/slide-06.png" alt="tier ladder of colour-ramped shapes" width="420"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>&lt;shape&gt;</code> flow — boxes + block arrows, no image</td>
+    <td align="center"><code>&lt;shape&gt;</code> tier ladder</td>
+  </tr>
+  <tr>
+    <td><img src="figures/gallery/slide-08.png" alt="results slide with a chart, caption and provenance link" width="420"></td>
+    <td><img src="figures/gallery/slide-10.png" alt="two-column compare" width="420"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>&lt;image&gt;</code> results slide + <code>&lt;caption&gt;</code> + <code>&lt;source&gt;</code></td>
+    <td align="center"><code>&lt;columns&gt;</code> compare</td>
+  </tr>
+  <tr>
+    <td><img src="figures/gallery/slide-11.png" alt="native editable table" width="420"></td>
+    <td><img src="figures/gallery/slide-12.png" alt="transcript cards" width="420"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>&lt;table&gt;</code> — one editable table object</td>
+    <td align="center"><code>&lt;turn&gt;</code> transcript cards</td>
+  </tr>
+</table>
+
 ## Gallery
 
 [`example-slides.pptx`](example-slides.pptx) / [`example-slides.pdf`](example-slides.pdf)
@@ -122,7 +154,7 @@ export can run to ~1 MB per page).
 | `slides_look.py` | The look: chrome, defaults, colours, card styles — one place to tweak |
 | `build.sh` | Wrapper: deck dir or layout file → named `.pptx` |
 | `example-slides.xml` · `.pptx` · `.pdf` | The gallery: source and built outputs |
-| `figures/` | The gallery's chart |
+| `figures/` | The gallery's chart, and `gallery/` renders used in this README |
 | `.claude-plugin/` | Plugin + marketplace manifests, so the repo installs as a Claude Code plugin |
 
 ## Contributing
